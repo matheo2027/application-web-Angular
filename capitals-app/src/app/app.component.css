@@ -1,0 +1,207 @@
+/* Container Principal */
+#container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Sidebar */
+#sidebar {
+  width: 200px;
+  height: 100%;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  border-right: 1px solid #CCC;
+  background-color: #f4f4f4;
+  overflow-y: auto;
+}
+
+/* Menu dans la Sidebar */
+#sidebarMenu {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding-top: 90px;
+  padding-left: 10px;
+}
+
+/* Liens dans le Menu */
+#sidebarMenu a {
+  text-decoration: none;
+  color: #333;
+  border-bottom: 1px solid #CCC;
+  padding: 15px 40px;
+  display: block;
+
+  &:hover {
+    background-color: #eee;
+  }
+}
+
+/* Conteneur du Contenu */
+#contentContainer {
+  flex-grow: 1;
+  margin-left: -200px;
+  transition: margin-left 0.3s ease-in-out;
+  overflow-y: auto;
+}
+
+/* En-tête du Conteneur */
+#header {
+  display: flex;
+  width: 100%;
+  padding: 20px 30px;
+  box-sizing: border-box;
+  justify-content: space-between;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+/* Logo dans l'En-tête */
+#logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+/* Texte sous le Logo */
+#by {
+  font-size: 14px;
+}
+
+/* Menu dans l'En-tête */
+#menu {
+  display: flex;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+/* Liens dans le Menu */
+#menu a {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+
+  &:hover {
+    color: dodgerblue;
+  }
+}
+
+/* Contenu Principal */
+#content {
+  padding: 20px;
+  height: calc(100vh - 80px);
+  overflow-y: auto;
+}
+
+/* Carte */
+#frugalmap {
+  height: 90%;
+  width: 100%;
+}
+
+/* Informations sur les Capitales */
+#capital-info {
+  display: flex;
+  flex-direction: column; /* Assure une colonne pour chaque élément */
+  gap: 15px; /* Espacement entre les éléments */
+}
+
+/* Classe pour Activer la Sidebar */
+.sidebarActive {
+  #sidebar {
+    transform: translateX(0);
+  }
+  #contentContainer {
+    margin-left: 0;
+  }
+}
+
+/* Style pour les Informations sur les Capitales */
+.capital-info {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 15px;
+  background-color: #f9f9f9;
+}
+
+.capital-info h3 {
+  margin: 0 0 10px 0;
+}
+
+.capital-info p {
+  margin: 5px 0;
+}
+
+.capital-info button {
+  margin-top: 10px;
+  margin-left: 10px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #007bff;
+  cursor: pointer;
+}
+
+.capital-info button:hover {
+  background-color: #0056b3;
+}
+
+#addCapitalButton {
+  margin-bottom: 15px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #007bff;
+  cursor: pointer;
+}
+
+#addCapitalButton:hover {
+  background-color: #0056b3;
+}
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.edit-form label {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-form input {
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.edit-form button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #007bff;
+  cursor: pointer;
+}
+
+.edit-form button:hover {
+  background-color: #0056b3;
+}
+
+.edit-form button[type="button"] {
+  background-color: #6c757d;
+}
+
+.edit-form button[type="button"]:hover {
+  background-color: #5a6268;
+}

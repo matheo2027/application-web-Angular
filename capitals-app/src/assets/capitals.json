@@ -1,0 +1,37 @@
+[
+  {
+      "ville": "Paris",
+      "pays": "France",
+      "lat": 48.8566,
+      "lon": 2.3522,
+      "population": 2148000
+  },
+  {
+      "ville": "Tokyo",
+      "pays": "Japon",
+      "lat": 35.6895,
+      "lon": 139.6917,
+      "population": 13929286
+  },
+  {
+      "ville": "Washington D.C.",
+      "pays": "États-Unis",
+      "lat": 38.9072,
+      "lon": -77.0369,
+      "population": 692683
+  },
+  {
+      "ville": "Canberra",
+      "pays": "Australie",
+      "lat": -35.2809,
+      "lon": 149.1300,
+      "population": 453424
+  },
+  {
+      "ville": "Madrid",
+      "pays": "Espagne",
+      "lat": 40.4168,
+      "lon": -3.7038,
+      "population": 3266126
+  }
+]

@@ -1,0 +1,93 @@
+<div id="container" [ngClass]="{ sidebarActive: sidebarActive }">
+  <div id="sidebar">
+    <div id="sidebarMenu">
+      <a href="#" (click)="displayMap()">Map</a>
+      <a href="#" (click)="displayCapitals()">Capitals</a>
+    </div>
+  </div>
+  <div id="contentContainer">
+    <div id="header">
+      <div id="logo">
+        <img
+          [src]="sidebarActive ? '/assets/images/cross-icon.svg' : '/assets/images/menu-icon.svg'" height="20" width="20"
+          (click)="sidebarActive = !sidebarActive"
+        />
+        CapitalsApp
+        <h3 id="by">Par Mathéo PIQUES</h3>
+      </div>
+      <div id="menu">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Logout</a>
+      </div>
+    </div>
+    <div id="content">
+      <div id="frugalmap" *ngIf="showMap"></div>
+      <div id="capital-info" *ngIf="showCapitals">
+        <button id="addCapitalButton" (click)="toggleNewCapitalForm()">Add new capital</button>
+        <form *ngIf="isAddingNewCapital" (ngSubmit)="addCapital()" class="edit-form">
+          <label>
+            Ville:
+            <input type="text" [(ngModel)]="newCapital.ville" name="ville" required />
+          </label>
+          <label>
+            Pays:
+            <input type="text" [(ngModel)]="newCapital.pays" name="pays" required />
+          </label>
+          <label>
+            Latitude:
+            <input type="number" [(ngModel)]="newCapital.lat" name="lat" step="0.01" required />
+          </label>
+          <label>
+            Longitude:
+            <input type="number" [(ngModel)]="newCapital.lon" name="lon" step="0.01" required />
+          </label>
+          <label>
+            Population:
+            <input type="number" [(ngModel)]="newCapital.population" name="population" required />
+          </label>
+          <button type="submit">Save</button>
+          <button type="button" (click)="cancelNewCapital()">Cancel</button>
+        </form>
+        <div *ngFor="let capital of capitals; let i = index" class="capital-info">
+          <ng-container *ngIf="!capital.isEditing">
+            <h3>{{ capital.ville }}</h3>
+            <p>Pays: {{ capital.pays }}</p>
+            <p>Latitude: {{ capital.lat }}</p>
+            <p>Longitude: {{ capital.lon }}</p>
+            <p>Population: {{ capital.population }}</p>
+            <button (click)="editCapital(i)">Edit</button>
+            <button (click)="deleteCapital(i)">Delete</button>
+          </ng-container>
+          <ng-container *ngIf="capital.isEditing">
+            <form (ngSubmit)="saveCapital(i)" class="edit-form">
+              <label>
+                Ville:
+                <input type="text" [(ngModel)]="capital.ville" name="ville" required />
+              </label>
+              <label>
+                Pays:
+                <input type="text" [(ngModel)]="capital.pays" name="pays" required />
+              </label>
+              <label>
+                Latitude:
+                <input type="number" [(ngModel)]="capital.lat" name="lat" step="0.01" required />
+              </label>
+              <label>
+                Longitude:
+                <input type="number" [(ngModel)]="capital.lon" name="lon" step="0.01" required />
+              </label>
+              <label>
+                Population:
+                <input type="number" [(ngModel)]="capital.population" name="population" required />
+              </label>
+              <button type="submit">Save</button>
+              <button type="button" (click)="cancelEdit(i)">Cancel</button>
+            </form>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
